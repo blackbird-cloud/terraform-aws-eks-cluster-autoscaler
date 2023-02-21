@@ -37,6 +37,7 @@
 |------|-------------|------|---------|:--------:|
 | <a name="input_aws_region"></a> [aws\_region](#input\_aws\_region) | The AWS region the autoscaler will be running in. | `string` | n/a | yes |
 | <a name="input_cluster_name"></a> [cluster\_name](#input\_cluster\_name) | EKS Cluster name. | `string` | n/a | yes |
+| <a name="input_scale_down_utilization_threshold"></a> [scale\_down\_utilization\_threshold](#input\_scale\_down\_utilization\_threshold) | The scale down node utilization threshold. | `string` | `"0.5"` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | AWS Tags. | `map(string)` | n/a | yes |
 
 ## Outputs
