@@ -191,7 +191,7 @@ extraArgs:
   # scale-down-enabled: true
   # balance-similar-node-groups: true
   # min-replica-count: 0
-  # scale-down-utilization-threshold: 0.5
+  scale-down-utilization-threshold: ${scale_down_utilization_threshold}
   # scale-down-non-empty-candidates-count: 30
   # max-node-provision-time: 15m0s
   # scan-interval: 10s
