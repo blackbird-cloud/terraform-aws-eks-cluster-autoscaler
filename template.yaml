@@ -30,7 +30,7 @@ autoDiscovery:
   # Enable autodiscovery for `cloudProvider=clusterapi`, for groups matching `autoDiscovery.labels`.
   # Enable autodiscovery for `cloudProvider=gce`, but no MIG tagging required.
   # Enable autodiscovery for `cloudProvider=magnum`, for groups matching `autoDiscovery.roles`.
-  clusterName:  ${cluster_name}
+  clusterName: ${cluster_name}
 
   # autoDiscovery.tags -- ASG tags to match, run through `tpl`.
   tags:
@@ -43,7 +43,8 @@ autoDiscovery:
     - worker
 
   # autoDiscovery.labels -- Cluster-API labels to match  https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/clusterapi/README.md#configuring-node-group-auto-discovery
-  labels: []
+  labels:
+    []
     # - color: green
     # - shape: circle
 # autoscalingGroups -- For AWS, Azure AKS or Magnum. At least one element is required if not using `autoDiscovery`. For example:
@@ -128,7 +129,7 @@ magnumCABundlePath: "/etc/kubernetes/ca-bundle.crt"
 # Syntax: workloadClusterMode-ManagementClusterMode
 # for `kubeconfig-kubeconfig`, `incluster-kubeconfig` and `single-kubeconfig` you always must mount the external kubeconfig using either `extraVolumeSecrets` or `extraMounts` and `extraVolumes`
 # if you dont set `clusterAPIKubeconfigSecret`and thus use an in-cluster config or want to use a non capi generated kubeconfig you must do so for the workload kubeconfig as well
-clusterAPIMode: incluster-incluster  # incluster-incluster, incluster-kubeconfig, kubeconfig-incluster, kubeconfig-kubeconfig, single-kubeconfig
+clusterAPIMode: incluster-incluster # incluster-incluster, incluster-kubeconfig, kubeconfig-incluster, kubeconfig-kubeconfig, single-kubeconfig
 
 # clusterAPIKubeconfigSecret -- Secret containing kubeconfig for connecting to Cluster API managed workloadcluster
 # Required if `cloudProvider=clusterapi` and `clusterAPIMode=kubeconfig-kubeconfig,kubeconfig-incluster or incluster-kubeconfig`
@@ -153,7 +154,8 @@ cloudConfigPath: /etc/gce.conf
 cloudProvider: aws
 
 # containerSecurityContext -- [Security context for container](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)
-containerSecurityContext: {}
+containerSecurityContext:
+  {}
   # capabilities:
   #   drop:
   #   - ALL
@@ -170,7 +172,8 @@ dnsPolicy: ClusterFirst
 expanderPriorities: {}
 
 # priorityConfigMapAnnotations -- Annotations to add to `cluster-autoscaler-priority-expander` ConfigMap.
-priorityConfigMapAnnotations: {}
+priorityConfigMapAnnotations:
+  {}
   # key1: "value1"
   # key2: "value2"
 
@@ -219,7 +222,8 @@ envFromConfigMap: ""
 envFromSecret: ""
 
 # extraVolumeSecrets -- Additional volumes to mount from Secrets.
-extraVolumeSecrets: {}
+extraVolumeSecrets:
+  {}
   # autoscaler-vol:
   #   mountPath: /data/autoscaler/
   # custom-vol:
@@ -230,13 +234,15 @@ extraVolumeSecrets: {}
   #       path: mypath
 
 # extraVolumes -- Additional volumes.
-extraVolumes: []
+extraVolumes:
+  []
   # - name: ssl-certs
   #   hostPath:
   #     path: /etc/ssl/certs/ca-bundle.crt
 
 # extraVolumeMounts -- Additional volumes to mount.
-extraVolumeMounts: []
+extraVolumeMounts:
+  []
   # - name: ssl-certs
   #   mountPath: /etc/ssl/certs/ca-certificates.crt
   #   readOnly: true
@@ -248,7 +254,7 @@ image:
   # image.repository -- Image repository
   repository: k8s.gcr.io/autoscaling/cluster-autoscaler
   # image.tag -- Image tag
-  tag: v1.23.0
+  tag: ${image_tag}
   # image.pullPolicy -- Image pull policy
   pullPolicy: IfNotPresent
   ## Optionally specify an array of imagePullSecrets.
@@ -289,7 +295,8 @@ priorityClassName: "system-cluster-critical"
 replicaCount: 1
 
 # resources -- Pod resource requests and limits.
-resources: {}
+resources:
+  {}
   # limits:
   #   cpu: 100m
   #   memory: 300Mi
@@ -298,7 +305,8 @@ resources: {}
   #   memory: 300Mi
 
 # securityContext -- [Security context for pod](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)
-securityContext: {}
+securityContext:
+  {}
   # runAsNonRoot: true
   # runAsUser: 1001
   # runAsGroup: 1001
@@ -357,7 +365,8 @@ prometheusRule:
 tolerations: []
 
 # topologySpreadConstraints -- You can use topology spread constraints to control how Pods are spread across your cluster among failure-domains such as regions, zones, nodes, and other user-defined topology domains. (requires Kubernetes >= 1.19).
-topologySpreadConstraints: []
+topologySpreadConstraints:
+  []
   # - maxSkew: 1
   #   topologyKey: topology.kubernetes.io/zone
   #   whenUnsatisfiable: DoNotSchedule
@@ -366,7 +375,8 @@ topologySpreadConstraints: []
   #       app.kubernetes.io/instance: cluster-autoscaler
 
 # updateStrategy -- [Deployment update strategy](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#strategy)
-updateStrategy: {}
+updateStrategy:
+  {}
   # rollingUpdate:
   #   maxSurge: 1
   #   maxUnavailable: 0

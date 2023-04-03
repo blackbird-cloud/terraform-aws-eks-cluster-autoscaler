@@ -105,11 +105,12 @@ resource "helm_release" "cluster_autoscaler" {
   values = [
     templatefile("template.yaml",
       {
-        cluster_name                     = var.cluster_name
-        role_arn                         = module.iam_role.iam_role_arn
-        service_account_name             = local.name
         aws_region                       = var.aws_region
+        cluster_name                     = var.cluster_name
+        image_tag                        = var.image_tag
+        role_arn                         = module.iam_role.iam_role_arn
         scale_down_utilization_threshold = var.scale_down_utilization_threshold
+        service_account_name             = local.name
       }
     )
   ]
