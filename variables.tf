@@ -21,6 +21,6 @@ variable "scale_down_utilization_threshold" {
 
 variable "image_tag" {
   type        = string
-  default     = "v1.23.0"
+  default     = "v1.26.2"
   description = "Docker image tag, and application version to use. Must match your Kubernetes version!"
 }
