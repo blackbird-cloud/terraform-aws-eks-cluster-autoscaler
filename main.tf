@@ -99,7 +99,7 @@ resource "helm_release" "cluster_autoscaler" {
   namespace  = "kube-system"
 
   cleanup_on_fail = true
-  version         = "9.16.2"
+  version         = "9.28.0"
   force_update    = true
 
   values = [
