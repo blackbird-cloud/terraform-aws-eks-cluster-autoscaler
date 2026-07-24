@@ -23,14 +23,14 @@ module "eks_cluster_autoscaler" {
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | 4.46.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 6.0 |
 | <a name="requirement_helm"></a> [helm](#requirement\_helm) | 2.4.1 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.46.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | ~> 6.0 |
 | <a name="provider_helm"></a> [helm](#provider\_helm) | 2.4.1 |
 
 ## Resources
@@ -38,11 +38,11 @@ module "eks_cluster_autoscaler" {
 | Name | Type |
 |------|------|
 | [helm_release.cluster_autoscaler](https://registry.terraform.io/providers/hashicorp/helm/2.4.1/docs/resources/release) | resource |
-| [aws_autoscaling_groups.groups](https://registry.terraform.io/providers/hashicorp/aws/4.46.0/docs/data-sources/autoscaling_groups) | data source |
-| [aws_eks_cluster.cluster](https://registry.terraform.io/providers/hashicorp/aws/4.46.0/docs/data-sources/eks_cluster) | data source |
-| [aws_eks_cluster_auth.cluster](https://registry.terraform.io/providers/hashicorp/aws/4.46.0/docs/data-sources/eks_cluster_auth) | data source |
-| [aws_eks_node_group.group](https://registry.terraform.io/providers/hashicorp/aws/4.46.0/docs/data-sources/eks_node_group) | data source |
-| [aws_eks_node_groups.groups](https://registry.terraform.io/providers/hashicorp/aws/4.46.0/docs/data-sources/eks_node_groups) | data source |
+| [aws_autoscaling_groups.groups](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/autoscaling_groups) | data source |
+| [aws_eks_cluster.cluster](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/eks_cluster) | data source |
+| [aws_eks_cluster_auth.cluster](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/eks_cluster_auth) | data source |
+| [aws_eks_node_group.group](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/eks_node_group) | data source |
+| [aws_eks_node_groups.groups](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/eks_node_groups) | data source |
 
 ## Inputs
 
