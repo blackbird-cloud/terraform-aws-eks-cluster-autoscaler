@@ -1,3 +1,23 @@
+<!-- BEGIN_TF_DOCS -->
+# Terraform Aws Eks Cluster Autoscaler Module
+Terraform module to deploy Cluster Autoscaler on EKS
+
+[![blackbird-logo](https://raw.githubusercontent.com/blackbird-cloud/terraform-module-template/main/.config/logo_simple.png)](https://blackbird.cloud)
+
+## Example
+```hcl
+module "eks_cluster_autoscaler" {
+  source  = "blackbird-cloud/eks-cluster-autoscaler/aws"
+  version = "~> 1"
+
+  cluster_name = "my-cluster"
+  aws_region   = "eu-central-1"
+  tags = {
+    Environment = "production"
+  }
+}
+```
+
 ## Requirements
 
 | Name | Version |
@@ -12,13 +32,6 @@
 |------|---------|
 | <a name="provider_aws"></a> [aws](#provider\_aws) | 4.46.0 |
 | <a name="provider_helm"></a> [helm](#provider\_helm) | 2.4.1 |
-
-## Modules
-
-| Name | Source | Version |
-|------|--------|---------|
-| <a name="module_autoscaler_policy"></a> [autoscaler\_policy](#module\_autoscaler\_policy) | terraform-aws-modules/iam/aws//modules/iam-policy | ~> 5 |
-| <a name="module_iam_role"></a> [iam\_role](#module\_iam\_role) | terraform-aws-modules/iam/aws//modules/iam-eks-role | ~> 5 |
 
 ## Resources
 
@@ -44,3 +57,14 @@
 ## Outputs
 
 No outputs.
+
+## About
+
+We are [Blackbird Cloud](https://blackbird.cloud), Amsterdam based cloud consultancy, and cloud management service provider. We help companies build secure, cost efficient, and scale-able solutions.
+
+Checkout our other :point\_right: [terraform modules](https://registry.terraform.io/namespaces/blackbird-cloud)
+
+## Copyright
+
+Copyright © 2017-2026 [Blackbird Cloud](https://blackbird.cloud)
+<!-- END_TF_DOCS -->
