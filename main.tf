@@ -34,7 +34,7 @@ data "aws_autoscaling_groups" "groups" {
 
 module "autoscaler_policy" {
   source  = "terraform-aws-modules/iam/aws//modules/iam-policy"
-  version = "~> 5"
+  version = "~> 5.0"
 
   name        = local.name
   path        = "/eks-autoscaler/"
@@ -76,7 +76,7 @@ EOF
 
 module "iam_role" {
   source  = "terraform-aws-modules/iam/aws//modules/iam-eks-role"
-  version = "~> 5"
+  version = "~> 5.0"
 
   role_name = local.name
   role_path = "/eks-autoscaler/"
